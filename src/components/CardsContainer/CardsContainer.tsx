@@ -9,21 +9,21 @@ import { ICard } from "../../interfaces/interfaces";
 import { Pagination } from "@mui/material";
 import { pageSize } from "../../helpers/api";
 
-interface IProps {
+interface CardsContainerProps {
   title: string;
   ordering: string;
   search?: string;
   pageNumber?: number;
-  setPageNumber?: any;
-  //???
+  setPageNumber?: any; //!!!!!
+  // setPageNumber?: (value: number) => void;
+  // setPageNumber?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const CardsContainer: React.FC<IProps> = ({ title, ordering, search, pageNumber, setPageNumber }) => {
-  const [games, setGames] = useState<ICard[]>([]); //!??
+const CardsContainer: React.FC<CardsContainerProps> = ({ title, ordering, search, pageNumber, setPageNumber }) => {
+  const [games, setGames] = useState<ICard[]>([]);
   const [loading, setLoading] = useState(false);
   const [qtyOfAllSearchedGames, setQtyOfAllSearchedGames] = useState<number>(0);
   const [pagesQty, setPagesQty] = useState<number>(0);
-  // console.log(games);
 
   useEffect(() => {
     if (!search) {
@@ -41,9 +41,6 @@ const CardsContainer: React.FC<IProps> = ({ title, ordering, search, pageNumber,
         setQtyOfAllSearchedGames(res.data.count);
         setPagesQty(Math.ceil(qtyOfAllSearchedGames / pageSize));
         setLoading(true);
-
-        console.log(res.data);
-        console.log("qtyOfAllSearchedGames", qtyOfAllSearchedGames);
       });
     }
   }, [search, qtyOfAllSearchedGames, pageNumber]);
@@ -57,7 +54,8 @@ const CardsContainer: React.FC<IProps> = ({ title, ordering, search, pageNumber,
             {games.map((game) => {
               return (
                 <Card
-                  key={game.name}
+                  id={game.id}
+                  key={game.id}
                   name={game.name}
                   released={game.released}
                   rating={game.rating}
@@ -74,7 +72,11 @@ const CardsContainer: React.FC<IProps> = ({ title, ordering, search, pageNumber,
               siblingCount={1}
               count={pagesQty}
               page={pageNumber}
-              onChange={(_, num) => setPageNumber(num)}
+              onChange={(_, num) => {
+                if (typeof pageNumber === "number") {
+                  setPageNumber(num);
+                }
+              }}
               showFirstButton
               showLastButton
             />

@@ -3,8 +3,8 @@ import { Search } from "../Search/Search";
 import { CardsContainer } from "../CardsContainer";
 
 const SearchContainer: React.FC = () => {
-  const [search, setSearch] = useState(null);
-  const [pageNumber, setPageNumber] = useState<number>(1);
+  const [search, setSearch] = useState<string | null>(null);
+  const [pageNumber, setPageNumber] = useState(1);
 
   return (
     <>

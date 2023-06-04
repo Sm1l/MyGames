@@ -5,13 +5,13 @@ import { Button } from "@mui/material";
 
 import { STitle, SFindContainer } from "./stylesSearch";
 
-interface IProps {
-  setSearch: any;
-  setPageNumber: any;
+interface SearchProps {
+  setSearch: (value: string | null) => void;
+  setPageNumber: (value: number) => void;
   //???
 }
 
-const Search: React.FC<IProps> = ({ setSearch, setPageNumber }) => {
+const Search: React.FC<SearchProps> = ({ setSearch, setPageNumber }) => {
   const [value, setValue] = useState("");
 
   const handleButtonClick = (e: any) => {
