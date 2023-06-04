@@ -62,14 +62,9 @@ export const SLink = styled(Link)`
 `;
 export const SScreenshotContainer = styled.div`
   grid-area: screenshot;
-  gap: 10px;
+  gap: 20px;
   display: flex;
   flex-wrap: wrap;
-  /* display: grid; */
-  /* grid-template-rows: auto; */
-  /* grid-template-columns: repeat(2, 1fr); */
-  /* grid-template-columns: repeat(3, 250px); */
-  /* grid-template-rows: auto; */
 `;
 
 export const SImgContainer = styled.div`
@@ -82,9 +77,7 @@ export const SImgContainer = styled.div`
 
 export const SImgScreenshotsContainer = styled.div`
   position: relative;
-  padding-bottom: 10%;
-  width: 100%;
-  height: 100%;
+  padding-bottom: 30%;
   flex: 1 48%;
 `;
 
