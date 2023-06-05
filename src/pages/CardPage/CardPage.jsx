@@ -57,7 +57,8 @@ const CardPage: React.FC = () => {
         .catch((err) => console.log(err));
     }
   }, [id]);
-  console.log(screenshots);
+  console.log("screenshots:", screenshots);
+  console.log("singleCard:", singleCard);
 
   return (
     <SContainer>
@@ -74,7 +75,6 @@ const CardPage: React.FC = () => {
         {background_image ? <SImage src={background_image} alt="game image" /> : "no image"}
       </SImgContainer>
       <SDescription> {description_raw}</SDescription>
-      <STags>Tags: {tags && tags.map((tag) => <span key={tag.slug}>{`#${tag.slug}`} </span>)}</STags>
       <SScreenshotContainer>
         {screenshots &&
           screenshots.map((item) => (
@@ -83,6 +83,15 @@ const CardPage: React.FC = () => {
             </SImgScreenshotsContainer>
           ))}
       </SScreenshotContainer>
+      {!!tags?.length && (
+        <STags>
+          Tags:
+          {tags.map((tag) => (
+            <span key={tag.slug}>{`#${tag.slug}`} </span>
+          ))}
+        </STags>
+      )}
+
       <SLink to="/">Back</SLink>
     </SContainer>
   );

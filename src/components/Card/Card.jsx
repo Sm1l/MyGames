@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { SCardContainer, STitle, SImage, SP, SImgContainer } from "./StyleCard";
 import { cardView } from "../../helpers/cardView";
@@ -18,16 +17,13 @@ const Card: React.FC<ICard> = ({ id, name, released, rating, background_image })
   //   }
 
   return (
-    // <SCardContainer tabIndex={0} onClick={() => cardHandleClick(id)}>
-    <SCardContainer tabIndex={0}>
-      <Link to={`${id}`}>
-        <STitle>{name}</STitle>
-        <SP>Released: {cardView(`${released}`)}</SP>
-        <SP>Rating: {rating}</SP>
-        <SImgContainer>
-          {background_image ? <SImage src={background_image} alt="game image" /> : "no image"}
-        </SImgContainer>
-      </Link>
+    <SCardContainer to={`${id}`}>
+      <STitle>{name}</STitle>
+      <SP>Released: {cardView(`${released}`)}</SP>
+      <SP>Rating: {rating}</SP>
+      <SImgContainer>
+        {background_image ? <SImage src={background_image} alt="game image" /> : "no image"}
+      </SImgContainer>
     </SCardContainer>
   );
 };

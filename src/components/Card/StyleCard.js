@@ -1,19 +1,18 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
-export const SCardContainer = styled.div`
+export const SCardContainer = styled(Link)`
   display: grid;
   grid-auto-flow: row;
   grid-template-rows: 1fr minmax(15px, auto) minmax(15px, auto) auto;
   grid-template-columns: 1fr;
   gap: 10px;
   padding: 10px;
-  border: 1px solid var(--color-white);
-  border-radius: 5px;
+  overflow: hidden;
+  /* border: 1px solid var(--color-white); */
+  border-radius: 10px;
   box-shadow: 2px 2px 6px 3px rgba(255, 255, 255, 0.4);
   transition: transform 300ms, box-shadow 300ms;
-  &:hover {
-    cursor: pointer;
-  }
 
   @media (min-width: 960px) {
     &:hover,
@@ -36,6 +35,7 @@ export const SImgContainer = styled.div`
   padding-bottom: 80%;
   width: 100%;
   height: 100%;
+  /* overflow: hidden; */
 `;
 
 export const SImage = styled.img`

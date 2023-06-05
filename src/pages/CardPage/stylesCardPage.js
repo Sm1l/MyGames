@@ -11,8 +11,8 @@ export const SContainer = styled.main`
     "genres platforms"
     "image image"
     "description description"
-    "tags tags"
     "screenshot screenshot"
+    "tags tags"
     "- back";
 
   padding: 30px;
@@ -50,6 +50,8 @@ export const SGenres = styled(SPLeft)`
 `;
 export const SDescription = styled(SPLeft)`
   grid-area: description;
+  font-size: 18px;
+  line-height: 150%;
 `;
 
 export const STags = styled(SPLeft)`
@@ -59,10 +61,18 @@ export const STags = styled(SPLeft)`
 export const SLink = styled(Link)`
   text-align: right;
   grid-area: back;
+  align-self: flex-end;
+  align-items: flex-end;
+  @media (min-width: 960px) {
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 `;
 export const SScreenshotContainer = styled.div`
   grid-area: screenshot;
-  gap: 20px;
+  gap: 40px;
   display: flex;
   flex-wrap: wrap;
 `;
@@ -73,12 +83,29 @@ export const SImgContainer = styled.div`
   padding-bottom: 80%;
   width: 100%;
   height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 2px 2px 6px 3px rgba(255, 255, 255, 0.4);
 `;
 
-export const SImgScreenshotsContainer = styled.div`
+export const SImgScreenshotsContainer = styled(Link)`
+  display: flex;
   position: relative;
   padding-bottom: 30%;
   flex: 1 48%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 2px 2px 6px 3px rgba(255, 255, 255, 0.4);
+  transition: transform 300ms, box-shadow 300ms;
+
+  @media (min-width: 960px) {
+    &:hover,
+    &:focus {
+      box-shadow: 6px 6px 14px 4px rgba(255, 255, 255, 0.5);
+      transition: transform 300ms, box-shadow 300ms;
+      transform: translateX(-4px) translateY(-4px);
+    }
+  }
 `;
 
 export const SImage = styled.img`
