@@ -13,7 +13,7 @@ export const SContainer = styled.main`
     "description description"
     "screenshot screenshot"
     "tags tags"
-    "- back";
+    "- link";
 
   padding: 30px;
   width: 100%;
@@ -25,7 +25,7 @@ export const SContainer = styled.main`
 export const STitle = styled.h3`
   grid-area: title;
   font-weight: 500;
-  font-size: 32px;
+  font-size: 40px;
   text-align: center;
 `;
 const SPLeft = styled.p``;
@@ -40,9 +40,13 @@ export const SReleased = styled(SPRight)`
   grid-area: released;
   font-size: 18px;
 `;
-export const SPlatforms = styled(SPRight)`
+export const SPlatforms = styled.div`
   grid-area: platforms;
   font-size: 18px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-end;
 `;
 export const SGenres = styled(SPLeft)`
   grid-area: genres;
@@ -58,15 +62,20 @@ export const STags = styled(SPLeft)`
   grid-area: tags;
 `;
 
+export const SLinkContainer = styled.div`
+  grid-area: link;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
 export const SLink = styled(Link)`
-  text-align: right;
-  grid-area: back;
-  align-self: flex-end;
-  align-items: flex-end;
   @media (min-width: 960px) {
+    transition: transform 300ms;
     &:hover,
     &:focus {
-      text-decoration: underline;
+      transform: scale(1.2);
+      transition: transform 300ms;
     }
   }
 `;
@@ -85,7 +94,7 @@ export const SImgContainer = styled.div`
   height: 100%;
   border-radius: 30px;
   overflow: hidden;
-  box-shadow: 2px 2px 6px 3px rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow);
 `;
 
 export const SImgScreenshotsContainer = styled(Link)`
@@ -95,13 +104,13 @@ export const SImgScreenshotsContainer = styled(Link)`
   flex: 1 48%;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 2px 2px 6px 3px rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow);
   transition: transform 300ms, box-shadow 300ms;
 
   @media (min-width: 960px) {
     &:hover,
     &:focus {
-      box-shadow: 6px 6px 14px 4px rgba(255, 255, 255, 0.5);
+      box-shadow: var(--shadow-hover);
       transition: transform 300ms, box-shadow 300ms;
       transform: translateX(-4px) translateY(-4px);
     }

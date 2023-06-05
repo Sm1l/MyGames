@@ -11,13 +11,13 @@ export const SCardContainer = styled(Link)`
   overflow: hidden;
   /* border: 1px solid var(--color-white); */
   border-radius: 10px;
-  box-shadow: 2px 2px 6px 3px rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow);
   transition: transform 300ms, box-shadow 300ms;
 
   @media (min-width: 960px) {
     &:hover,
     &:focus {
-      box-shadow: 6px 6px 14px 4px rgba(255, 255, 255, 0.5);
+      box-shadow: var(--shadow-hover);
       transition: transform 300ms, box-shadow 300ms;
       transform: translateX(-4px) translateY(-4px);
     }
