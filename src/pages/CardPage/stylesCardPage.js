@@ -32,9 +32,13 @@ const SPLeft = styled.p``;
 const SPRight = styled(SPLeft)`
   text-align: right;
 `;
-export const SRating = styled(SPLeft)`
+export const SRating = styled.div`
   grid-area: rating;
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 `;
 export const SReleased = styled(SPRight)`
   grid-area: released;
@@ -89,7 +93,7 @@ export const SScreenshotContainer = styled.div`
 export const SImgContainer = styled.div`
   grid-area: image;
   position: relative;
-  padding-bottom: 80%;
+  padding-bottom: 50%;
   width: 100%;
   height: 100%;
   border-radius: 30px;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 
 import {
   SContainer,
@@ -73,7 +74,18 @@ const CardPage: React.FC = () => {
     <>
       <SContainer>
         <STitle>{name}</STitle>
-        <SRating>Rating: {rating}</SRating>
+        <SRating>
+          Rating: {rating}
+          <StarRatings
+            rating={rating}
+            starEmptyColor="var(--color-light-grey)"
+            starRatedColor="var(--color-white)"
+            numberOfStars={5}
+            name="rating"
+            starDimension="25px"
+            starSpacing="3px"
+          ></StarRatings>
+        </SRating>
         <SReleased>Released: {cardView(`${released}`)}</SReleased>
         <SGenres>Genres: {genres && genres.map((genre) => <span key={genre.slug}>{genre.slug} </span>)}</SGenres>
         <SPlatforms>
