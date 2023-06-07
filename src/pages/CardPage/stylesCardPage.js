@@ -39,6 +39,7 @@ export const SRating = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  gap: 5px;
 `;
 export const SReleased = styled(SPRight)`
   grid-area: released;

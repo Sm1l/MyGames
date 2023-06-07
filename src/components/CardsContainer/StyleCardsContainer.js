@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
-export const SContainer = styled.section`
+export const SContainer = styled(motion.section)`
   display: flex;
   flex-direction: column;
   gap: 30px;

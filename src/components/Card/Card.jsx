@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
-import { SCardContainer, STitle, SImage, SP, SImgContainer } from "./StyleCard";
+import { SCardContainer, STitle, SImage, SP, SImgContainer, SCardMotion } from "./StyleCard";
 import { cardView } from "../../helpers/cardView";
 import { ICard } from "../../interfaces/interfaces";
 import { getSingleGame } from "../../helpers/api";
@@ -17,14 +18,18 @@ const Card: React.FC<ICard> = ({ id, name, released, rating, background_image })
   //   }
 
   return (
-    <SCardContainer to={`${id}`}>
-      <STitle>{name}</STitle>
-      <SP>Released: {cardView(`${released}`)}</SP>
-      <SP>Rating: {rating}</SP>
-      <SImgContainer>
-        {background_image ? <SImage src={background_image} alt="game image" /> : "no image"}
-      </SImgContainer>
-    </SCardContainer>
+    <AnimatePresence>
+      <SCardMotion initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ duration: 1 }}>
+        <SCardContainer to={`${id}`}>
+          <STitle>{name}</STitle>
+          <SP>Released: {cardView(`${released}`)}</SP>
+          <SP>Rating: {rating}</SP>
+          <SImgContainer>
+            {background_image ? <SImage src={background_image} alt="game image" /> : "no image"}
+          </SImgContainer>
+        </SCardContainer>
+      </SCardMotion>
+    </AnimatePresence>
   );
 };
 

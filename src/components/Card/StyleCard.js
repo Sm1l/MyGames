@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
+export const SCardMotion = styled(motion.div)``;
 
 export const SCardContainer = styled(Link)`
   display: grid;
@@ -13,7 +16,7 @@ export const SCardContainer = styled(Link)`
   border-radius: 10px;
   box-shadow: var(--shadow);
   transition: transform 300ms, box-shadow 300ms;
-
+  height: 100%;
   @media (min-width: 960px) {
     &:hover,
     &:focus {

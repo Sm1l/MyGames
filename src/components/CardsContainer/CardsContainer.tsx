@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import { Card } from "../Card/Card";
 
@@ -48,41 +49,48 @@ const CardsContainer: React.FC<CardsContainerProps> = ({ title, ordering, search
   return (
     <>
       {loading ? (
-        <SContainer>
-          <STitle>{title}</STitle>
-          <SCardsContainer>
-            {games.map((game) => {
-              return (
-                <Card
-                  id={game.id}
-                  key={game.id}
-                  name={game.name}
-                  released={game.released}
-                  rating={game.rating}
-                  background_image={game.background_image}
-                />
-              );
-            })}
-          </SCardsContainer>
-          {search && pagesQty > 1 && (
-            <Pagination
-              variant="outlined"
-              shape="rounded"
-              color="primary"
-              siblingCount={1}
-              count={pagesQty}
-              page={pageNumber}
-              onChange={(_, num) => {
-                if (typeof pageNumber === "number") {
-                  setPageNumber(num);
-                }
-              }}
-              showFirstButton
-              showLastButton
-            />
-          )}
-          {search && qtyOfAllSearchedGames === 0 && <SP>not found</SP>}
-        </SContainer>
+        <AnimatePresence>
+          <SContainer
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2 }}
+          >
+            <STitle>{title}</STitle>
+            <SCardsContainer>
+              {games.map((game) => {
+                return (
+                  <Card
+                    id={game.id}
+                    key={game.id}
+                    name={game.name}
+                    released={game.released}
+                    rating={game.rating}
+                    background_image={game.background_image}
+                  />
+                );
+              })}
+            </SCardsContainer>
+            {search && pagesQty > 1 && (
+              <Pagination
+                variant="outlined"
+                shape="rounded"
+                color="primary"
+                siblingCount={1}
+                count={pagesQty}
+                page={pageNumber}
+                onChange={(_, num) => {
+                  if (typeof pageNumber === "number") {
+                    setPageNumber(num);
+                  }
+                }}
+                showFirstButton
+                showLastButton
+              />
+            )}
+            {search && qtyOfAllSearchedGames === 0 && <SP>not found</SP>}
+          </SContainer>
+        </AnimatePresence>
       ) : (
         <SContainer>Loading...</SContainer>
       )}
