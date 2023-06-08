@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
-export const SModalOverlay = styled.div`
+export const SModalOverlay = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   overflow-y: hidden;
@@ -14,14 +15,18 @@ export const SModalOverlay = styled.div`
   z-index: 1;
 `;
 
-export const SImgContainer = styled.div`
+export const SImgContainer = styled(motion.div)`
   position: relative;
-  padding-bottom: 40%;
-  width: 80%;
-  max-height: 60%;
+  padding-bottom: 90%;
+  width: 95%;
   border-radius: 30px;
   overflow: hidden;
   box-shadow: var(--shadow);
+
+  @media (min-width: 800px) {
+    padding-bottom: 40%;
+    width: 80%;
+  }
 `;
 
 export const SImage = styled.img`

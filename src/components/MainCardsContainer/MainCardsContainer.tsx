@@ -1,6 +1,5 @@
 import React from "react";
 import { CardsContainer } from "../CardsContainer/CardsContainer";
-import { motion } from "framer-motion";
 
 import { SMainContainer } from "./StyleMainCardsContainer";
 

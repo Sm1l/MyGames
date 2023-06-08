@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import { SImage, SImgContainer, SModalOverlay } from "./StylesModalScreenshot";
+import { modalScreenshotVariants } from "./animationModalScreenshot";
 
 interface ModalScreenshotProps {
   modalIsActive: boolean;
@@ -39,11 +41,28 @@ const ModalScreenshot: React.FC<ModalScreenshotProps> = ({ modalIsActive, setMod
   }, [modalIsActive]);
 
   return (
-    <SModalOverlay onClick={overlayHandleClick}>
-      <SImgContainer onClick={(e) => e.stopPropagation()}>
-        <SImage src={singleScreenshot} />
-      </SImgContainer>
-    </SModalOverlay>
+    <AnimatePresence>
+      {modalIsActive && (
+        <SModalOverlay
+          onClick={overlayHandleClick}
+          // animate={"visible"}
+          // exit={"hidden"}
+          // variants={modalScreenshotVariants}
+          // transition={{ duration: 0.5 }}
+        >
+          <SImgContainer
+            initial={"hidden"}
+            animate={"visible"}
+            exit={"hidden"}
+            variants={modalScreenshotVariants}
+            transition={{ duration: 0.5 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <SImage src={singleScreenshot} />
+          </SImgContainer>
+        </SModalOverlay>
+      )}
+    </AnimatePresence>
   );
 };
 

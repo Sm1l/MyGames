@@ -9,6 +9,7 @@ import { getGames, searchGames } from "../../helpers/api";
 import { ICard } from "../../interfaces/interfaces";
 import { Pagination } from "@mui/material";
 import { pageSize } from "../../helpers/api";
+import { cardsContainerVariants } from "./animationCardsCOntainer";
 
 interface CardsContainerProps {
   title: string;
@@ -51,10 +52,11 @@ const CardsContainer: React.FC<CardsContainerProps> = ({ title, ordering, search
       {loading ? (
         <AnimatePresence>
           <SContainer
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={"hidden"}
+            animate={"visible"}
+            exit={"hidden"}
             transition={{ duration: 2 }}
+            variants={cardsContainerVariants}
           >
             <STitle>{title}</STitle>
             <SCardsContainer>

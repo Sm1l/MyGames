@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { AnimatePresence } from "framer-motion";
 
 import { SCardContainer, STitle, SImage, SP, SImgContainer, SCardMotion } from "./StyleCard";
 import { cardView } from "../../helpers/cardView";
 import { ICard } from "../../interfaces/interfaces";
-import { getSingleGame } from "../../helpers/api";
+import { cardVariants } from "./animationCard";
 
 const Card: React.FC<ICard> = ({ id, name, released, rating, background_image }) => {
   // const [dataId, setDataId] = useState();
@@ -19,7 +19,13 @@ const Card: React.FC<ICard> = ({ id, name, released, rating, background_image })
 
   return (
     <AnimatePresence>
-      <SCardMotion initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ duration: 1 }}>
+      <SCardMotion
+        initial={"hidden"}
+        animate={"visible"}
+        exit={"hidden"}
+        transition={{ duration: 1 }}
+        variants={cardVariants}
+      >
         <SCardContainer to={`${id}`}>
           <STitle>{name}</STitle>
           <SP>Released: {cardView(`${released}`)}</SP>
