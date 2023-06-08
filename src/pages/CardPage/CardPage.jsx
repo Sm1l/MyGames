@@ -80,20 +80,22 @@ const CardPage: React.FC = () => {
       <AnimatePresence>
         <SContainer>
           <STitle
-            initial={"hidden"}
-            animate={"visible"}
-            exit={"hidden"}
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
             variants={cardPageVariants}
             transition={{ duration: 1 }}
+            viewport={{ amount: 0.1, once: true }}
           >
             {name}
           </STitle>
           <SRating
-            initial={"hidden"}
-            animate={"visible"}
-            exit={"hidden"}
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
             variants={cardPageVariants}
             transition={{ duration: 1 }}
+            viewport={{ amount: 0.1, once: true }}
           >
             Rating: {rating}
             <StarRatings
@@ -107,49 +109,54 @@ const CardPage: React.FC = () => {
             ></StarRatings>
           </SRating>
           <SReleased
-            initial={"hidden"}
-            animate={"visible"}
-            exit={"hidden"}
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
             variants={cardPageVariants}
             transition={{ duration: 1 }}
+            viewport={{ amount: 0.1, once: true }}
           >
             Released: {cardView(`${released}`)}
           </SReleased>
           <SGenres
-            initial={"hidden"}
-            animate={"visible"}
-            exit={"hidden"}
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
             variants={cardPageVariants}
             transition={{ duration: 1 }}
+            viewport={{ amount: 0.1, once: true }}
           >
             Genres: {genres && genres.map((genre) => <span key={genre.slug}>{genre.slug} </span>)}
           </SGenres>
           <SPlatforms
-            initial={"hidden"}
-            animate={"visible"}
-            exit={"hidden"}
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
             variants={cardPageVariants}
             transition={{ duration: 1 }}
+            viewport={{ amount: 0.1, once: true }}
           >
             Platforms:
             {parent_platforms && parent_platforms.map((item) => choosePlatform(item.platform.name))}
             {/* // parent_platforms.map((platform) => <span key={platform.platform.name}>{platform.platform.name} </span>)} */}
           </SPlatforms>
           <SImgContainer
-            initial={"hidden"}
-            animate={"visible"}
-            exit={"hidden"}
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
             variants={cardPageVariants}
             transition={{ duration: 1 }}
+            viewport={{ amount: 0.1, once: true }}
           >
             {background_image ? <SImage src={background_image} alt="game image" /> : "no image"}
           </SImgContainer>
           <SDescription
-            initial={"hidden"}
-            animate={"visible"}
-            exit={"hidden"}
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
             variants={cardPageVariants}
             transition={{ duration: 1 }}
+            viewport={{ amount: 0.1, once: true }}
           >
             {description_raw}
           </SDescription>
@@ -157,9 +164,10 @@ const CardPage: React.FC = () => {
             {screenshots &&
               screenshots.map((item) => (
                 <SImgScreenshotContainer
-                  initial={"hidden"}
-                  animate={"visible"}
-                  exit={"hidden"}
+                  initial="hidden"
+                  whileInView="visible"
+                  exit="hidden"
+                  viewport={{ amount: 0.2, once: true }}
                   variants={cardPageVariants}
                   transition={{ duration: 1 }}
                   key={item.id}
@@ -172,9 +180,10 @@ const CardPage: React.FC = () => {
           </SScreenshotContainer>
           {!!tags?.length && (
             <STags
-              initial={"hidden"}
-              animate={"visible"}
-              exit={"hidden"}
+              initial="hidden"
+              whileInView="visible"
+              exit="hidden"
+              viewport={{ amount: 0.1, once: true }}
               variants={cardPageVariants}
               transition={{ duration: 1 }}
             >
@@ -185,11 +194,12 @@ const CardPage: React.FC = () => {
             </STags>
           )}
           <SLinkContainer
-            initial={"hidden"}
-            animate={"visible"}
-            exit={"hidden"}
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
             variants={cardPageVariants}
             transition={{ duration: 1 }}
+            viewport={{ amount: 0.1, once: true }}
           >
             <SLink to="/">Back</SLink>
           </SLinkContainer>

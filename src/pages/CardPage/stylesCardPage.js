@@ -42,6 +42,7 @@ export const STitle = styled(motion.h3)`
   grid-area: title;
   font-weight: 500;
   font-size: 28px;
+  line-height: 120%;
   text-align: center;
   @media (min-width: 800px) {
     font-size: 40px;
