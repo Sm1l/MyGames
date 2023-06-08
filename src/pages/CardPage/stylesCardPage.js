@@ -19,12 +19,11 @@ export const SContainer = styled(motion.main)`
     "link";
 
   width: 100%;
-  gap: 10px;
+  gap: 20px;
   max-width: 1440px;
   min-height: 100vh;
 
   @media (min-width: 800px) {
-    gap: 20px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
@@ -42,8 +41,11 @@ export const SContainer = styled(motion.main)`
 export const STitle = styled(motion.h3)`
   grid-area: title;
   font-weight: 500;
-  font-size: 40px;
+  font-size: 28px;
   text-align: center;
+  @media (min-width: 800px) {
+    font-size: 40px;
+  }
 `;
 
 export const SRating = styled(motion.div)`
@@ -58,7 +60,10 @@ export const SRating = styled(motion.div)`
 export const SReleased = styled(motion.p)`
   grid-area: released;
   font-size: 18px;
-  text-align: right;
+
+  @media (min-width: 800px) {
+    text-align: right;
+  }
 `;
 export const SPlatforms = styled(motion.div)`
   grid-area: platforms;
@@ -66,7 +71,10 @@ export const SPlatforms = styled(motion.div)`
   display: flex;
   gap: 5px;
   align-items: center;
-  justify-content: flex-end;
+
+  @media (min-width: 800px) {
+    justify-content: flex-end;
+  }
 `;
 export const SGenres = styled(motion.p)`
   grid-area: genres;
