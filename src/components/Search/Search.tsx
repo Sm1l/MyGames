@@ -24,10 +24,6 @@ const Search: React.FC<SearchProps> = ({ setSearch, setPageNumber }) => {
     }
     setValue("");
   };
-  // const handleFormChange = (e: any) => {
-  //   // e.preventDefault();
-  //   setValue(e.target.value);
-  // };
 
   return (
     <>
@@ -36,8 +32,9 @@ const Search: React.FC<SearchProps> = ({ setSearch, setPageNumber }) => {
           initial={"hidden"}
           animate={"visible"}
           exit={"hidden"}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           variants={searchVariants}
+          viewport={{ amount: 0, once: true }}
         >
           MyGames
         </STitle>
@@ -47,8 +44,9 @@ const Search: React.FC<SearchProps> = ({ setSearch, setPageNumber }) => {
           initial={"hidden"}
           animate={"visible"}
           exit={"hidden"}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           variants={searchVariants}
+          viewport={{ amount: 0, once: true }}
         >
           <TextField
             label="Game"

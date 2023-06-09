@@ -84,8 +84,8 @@ const CardPage: React.FC = () => {
             whileInView="visible"
             exit="hidden"
             variants={cardPageVariants}
-            transition={{ duration: 1 }}
-            viewport={{ amount: 0.1, once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ amount: 0, once: true }}
           >
             {name}
           </STitle>
@@ -94,8 +94,8 @@ const CardPage: React.FC = () => {
             whileInView="visible"
             exit="hidden"
             variants={cardPageVariants}
-            transition={{ duration: 1 }}
-            viewport={{ amount: 0.1, once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ amount: 0, once: true }}
           >
             Rating: {rating}
             <StarRatings
@@ -113,8 +113,8 @@ const CardPage: React.FC = () => {
             whileInView="visible"
             exit="hidden"
             variants={cardPageVariants}
-            transition={{ duration: 1 }}
-            viewport={{ amount: 0.1, once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ amount: 0, once: true }}
           >
             Released: {cardView(`${released}`)}
           </SReleased>
@@ -123,8 +123,8 @@ const CardPage: React.FC = () => {
             whileInView="visible"
             exit="hidden"
             variants={cardPageVariants}
-            transition={{ duration: 1 }}
-            viewport={{ amount: 0.1, once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ amount: 0, once: true }}
           >
             Genres: {genres && genres.map((genre) => <span key={genre.slug}>{genre.slug} </span>)}
           </SGenres>
@@ -133,8 +133,8 @@ const CardPage: React.FC = () => {
             whileInView="visible"
             exit="hidden"
             variants={cardPageVariants}
-            transition={{ duration: 1 }}
-            viewport={{ amount: 0.1, once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ amount: 0, once: true }}
           >
             Platforms:
             {parent_platforms && parent_platforms.map((item) => choosePlatform(item.platform.name))}
@@ -145,8 +145,8 @@ const CardPage: React.FC = () => {
             whileInView="visible"
             exit="hidden"
             variants={cardPageVariants}
-            transition={{ duration: 1 }}
-            viewport={{ amount: 0.1, once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ amount: 0, once: true }}
           >
             {background_image ? <SImage src={background_image} alt="game image" /> : "no image"}
           </SImgContainer>
@@ -155,8 +155,8 @@ const CardPage: React.FC = () => {
             whileInView="visible"
             exit="hidden"
             variants={cardPageVariants}
-            transition={{ duration: 1 }}
-            viewport={{ amount: 0.1, once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ amount: 0, once: true }}
           >
             {description_raw}
           </SDescription>
@@ -167,9 +167,9 @@ const CardPage: React.FC = () => {
                   initial="hidden"
                   whileInView="visible"
                   exit="hidden"
-                  viewport={{ amount: 0.2, once: true }}
+                  viewport={{ amount: 0, once: true }}
                   variants={cardPageVariants}
-                  transition={{ duration: 1 }}
+                  transition={{ duration: 0.5 }}
                   key={item.id}
                 >
                   <SImgScreenshotLink onClick={() => screenshotHandleClick(item.image)}>
@@ -183,9 +183,9 @@ const CardPage: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               exit="hidden"
-              viewport={{ amount: 0.1, once: true }}
+              viewport={{ amount: 0, once: true }}
               variants={cardPageVariants}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.5 }}
             >
               Tags:
               {tags.map((tag) => (
@@ -198,8 +198,8 @@ const CardPage: React.FC = () => {
             whileInView="visible"
             exit="hidden"
             variants={cardPageVariants}
-            transition={{ duration: 1 }}
-            viewport={{ amount: 0.1, once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ amount: 0, once: true }}
           >
             <SLink to="/">Back</SLink>
           </SLinkContainer>

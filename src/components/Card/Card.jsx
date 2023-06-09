@@ -23,9 +23,9 @@ const Card: React.FC<ICard> = ({ id, name, released, rating, background_image })
         initial={"hidden"}
         whileInView={"visible"}
         exit={"hidden"}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         variants={cardVariants}
-        viewport={{ amount: 0.1, once: true }}
+        viewport={{ amount: 0, once: true }}
       >
         <SCardContainer to={`${id}`}>
           <STitle>{name}</STitle>

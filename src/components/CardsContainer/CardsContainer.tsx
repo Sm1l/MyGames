@@ -55,9 +55,9 @@ const CardsContainer: React.FC<CardsContainerProps> = ({ title, ordering, search
             initial={"hidden"}
             whileInView={"visible"}
             exit={"hidden"}
-            transition={{ duration: 2 }}
+            transition={{ duration: 0.5 }}
             variants={cardsContainerVariants}
-            viewport={{ amount: 0.1, once: true }}
+            viewport={{ amount: 0, once: true }}
           >
             <STitle>{title}</STitle>
             <SCardsContainer>
