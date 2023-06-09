@@ -133,10 +133,16 @@ export const SImgContainer = styled(motion.div)`
     padding-bottom: 50%;
   }
 `;
-
-export const SImgScreenshotContainer = styled(motion.div)`
-  position: relative;
+export const SCardMotion = styled(motion.div)`
   display: flex;
+  flex: 1 100%;
+
+  @media (min-width: 640px) {
+    flex: 1 46%;
+  }
+`;
+export const SImgScreenshotContainer = styled(Link)`
+  position: relative;
   padding-bottom: 50%;
   flex: 1 100%;
   border-radius: 20px;
@@ -149,7 +155,7 @@ export const SImgScreenshotContainer = styled(motion.div)`
   }
 
   @media (min-width: 800px) {
-    padding-bottom: 30%;
+    padding-bottom: 40%;
     &:hover,
     &:focus {
       box-shadow: var(--shadow-hover);

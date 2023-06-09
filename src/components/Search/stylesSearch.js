@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-// import Box from "@mui/material/Box";
 
 export const STitle = styled(motion.h1)`
   font-size: 32px;

@@ -6,23 +6,13 @@ import { Card } from "../Card/Card";
 import { SCardsContainer, SContainer, SP, STitle } from "./StyleCardsContainer";
 
 import { getGames, searchGames } from "../../helpers/api";
-import { ICard } from "../../interfaces/interfaces";
 import { Pagination } from "@mui/material";
 import { pageSize } from "../../helpers/api";
 import { cardsContainerVariants } from "./animationCardsCOntainer";
-
-interface CardsContainerProps {
-  title: string;
-  ordering: string;
-  search?: string;
-  pageNumber?: number;
-  setPageNumber?: any; //!!!!!
-  // setPageNumber?: (value: number) => void;
-  // setPageNumber?: React.Dispatch<React.SetStateAction<number>>;
-}
+import { ICardMini, CardsContainerProps } from "./interfacesCardsContainer";
 
 const CardsContainer: React.FC<CardsContainerProps> = ({ title, ordering, search, pageNumber, setPageNumber }) => {
-  const [games, setGames] = useState<ICard[]>([]);
+  const [games, setGames] = useState<ICardMini[]>([]);
   const [loading, setLoading] = useState(false);
   const [qtyOfAllSearchedGames, setQtyOfAllSearchedGames] = useState<number>(0);
   const [pagesQty, setPagesQty] = useState<number>(0);
@@ -83,9 +73,7 @@ const CardsContainer: React.FC<CardsContainerProps> = ({ title, ordering, search
                 count={pagesQty}
                 page={pageNumber}
                 onChange={(_, num) => {
-                  if (typeof pageNumber === "number") {
-                    setPageNumber(num);
-                  }
+                  setPageNumber?.(num); //!!!!!!!!!!!!!!!!!!!!!!
                 }}
                 showFirstButton
                 showLastButton
