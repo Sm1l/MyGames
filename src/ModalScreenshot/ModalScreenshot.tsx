@@ -19,7 +19,7 @@ const ModalScreenshot: React.FC<ModalScreenshotProps> = ({ modalIsActive, setMod
   //*close modal "Escape"
 
   useEffect(() => {
-    const escCloseModal = (e: any) => {
+    const escCloseModal = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         console.log("listener");
         setModalIsActive(false);
@@ -34,10 +34,19 @@ const ModalScreenshot: React.FC<ModalScreenshotProps> = ({ modalIsActive, setMod
     };
   }, [modalIsActive]);
 
-  //! useEffect with return??
+  //! ,,??
+  // useEffect(() => {
+  //   modalIsActive && (document.body.style.overflow = "hidden");
+  //   return () => (document.body.style.overflow = "unset");
+  // }, [modalIsActive]);
+
   useEffect(() => {
-    modalIsActive && (document.body.style.overflow = "hidden");
-    return () => (document.body.style.overflow = "unset");
+    if (modalIsActive) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [modalIsActive]);
 
   return (

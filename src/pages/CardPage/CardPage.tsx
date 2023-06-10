@@ -57,9 +57,9 @@ interface IPlatform {
 }
 
 interface ITags {
-  id?: number;
+  id: number;
   name: string;
-  slug: string;
+  slug?: string;
   language?: string;
   games_count?: number;
 }
