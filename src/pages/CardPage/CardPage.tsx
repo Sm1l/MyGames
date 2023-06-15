@@ -27,70 +27,23 @@ import { cardView } from "../../helpers/cardView";
 import { choosePlatform } from "../../helpers/platforms";
 import { getScreenshots, getSingleGame } from "../../helpers/api";
 import { cardPageVariants } from "./animationCardPage";
-
-interface ICardFull {
-  name: string;
-  genres: IGenre[];
-  description_raw: string;
-  rating: number;
-  released: string;
-  background_image: string;
-  parent_platforms: IPlatform[];
-  tags: ITags[];
-}
-
-interface IGenre {
-  games_count: number;
-  id: number;
-  image_background?: string;
-  name: string;
-  slug: string;
-  // [key: string]: string;
-}
-
-interface IPlatform {
-  platform: {
-    id: number;
-    name: string;
-    slug: string;
-  };
-}
-
-interface ITags {
-  id: number;
-  name: string;
-  slug?: string;
-  language?: string;
-  games_count?: number;
-}
-
-interface IScreenshot {
-  id: number;
-  image: string;
-  width: number;
-  height: number;
-  is_deleted: boolean;
-}
+import { ICardFull, IScreenshot } from "./interfacesCardPage";
 
 const CardPage: React.FC = () => {
   const { id } = useParams();
-  //jsx const [singleCard, setSingleCard] = useState([]);
   const [singleCard, setSingleCard] = useState<ICardFull>();
-  //jsx const [screenshots, setScreenshots] = useState([]);
-  const [screenshots, setScreenshots] = useState<IScreenshot[]>();
-  //jsx const [singleScreenshot, setSingleScreenshot] = useState("");
+  const [screenshots, setScreenshots] = useState<IScreenshot[]>([]);
   const [singleScreenshot, setSingleScreenshot] = useState<string>("");
-  //jsx const [modalIsActive, setModalIsActive] = useState(false);
   const [modalIsActive, setModalIsActive] = useState<boolean>(false);
 
-  const name: string | undefined = singleCard?.name;
-  const genres: IGenre[] | undefined = singleCard?.genres;
-  const description_raw: string | undefined = singleCard?.description_raw;
-  const rating: number | undefined = singleCard?.rating;
-  const released: string | undefined = singleCard?.released;
-  const background_image: string | undefined = singleCard?.background_image;
-  const parent_platforms: IPlatform[] | undefined = singleCard?.parent_platforms;
-  const tags: ITags[] | undefined = singleCard?.tags;
+  // const name: string | undefined = singleCard?.name;
+  // const genres: IGenre[] | undefined = singleCard?.genres;
+  // const description_raw: string | undefined = singleCard?.description_raw;
+  // const rating: number | undefined = singleCard?.rating;
+  // const released: string | undefined = singleCard?.released;
+  // const background_image: string | undefined = singleCard?.background_image;
+  // const parent_platforms = singleCard?.parent_platforms;
+  // const tags = singleCard?.tags;
 
   // const {
   //   name,
@@ -104,6 +57,9 @@ const CardPage: React.FC = () => {
   // }: ICardFull | undefined = singleCard;
 
   //jsx const { name, genres, description_raw, rating, released, background_image, parent_platforms, tags } = singleCard;
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   useEffect(() => {
     if (id) {
@@ -131,6 +87,10 @@ const CardPage: React.FC = () => {
     setModalIsActive(true);
     setSingleScreenshot(src);
   };
+
+  if (singleCard == null) return null;
+
+  const { name, genres, description_raw, rating, released, background_image, parent_platforms, tags } = singleCard;
 
   return (
     <>
@@ -234,7 +194,7 @@ const CardPage: React.FC = () => {
               </SCardMotion>
             ))}
         </SScreenshotContainer>
-        {!!tags?.length && (
+        {tags != null && (
           <STags
             initial="hidden"
             whileInView="visible"

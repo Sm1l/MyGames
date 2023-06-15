@@ -13,7 +13,7 @@ import { ICardMini, CardsContainerProps } from "./interfacesCardsContainer";
 
 const CardsContainer: React.FC<CardsContainerProps> = ({ title, ordering, search, pageNumber, setPageNumber }) => {
   const [games, setGames] = useState<ICardMini[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [qtyOfAllSearchedGames, setQtyOfAllSearchedGames] = useState<number>(0);
   const [pagesQty, setPagesQty] = useState<number>(0);
 
@@ -73,7 +73,7 @@ const CardsContainer: React.FC<CardsContainerProps> = ({ title, ordering, search
                 count={pagesQty}
                 page={pageNumber}
                 onChange={(_, num) => {
-                  setPageNumber?.(num); //!!!!!!!!!!!!!!!!!!!!!!
+                  setPageNumber?.(num);
                 }}
                 showFirstButton
                 showLastButton

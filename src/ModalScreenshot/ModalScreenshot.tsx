@@ -11,7 +11,7 @@ interface ModalScreenshotProps {
 }
 
 const ModalScreenshot: React.FC<ModalScreenshotProps> = ({ modalIsActive, setModalIsActive, singleScreenshot }) => {
-  const overlayHandleClick = (e: any) => {
+  const overlayHandleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     setModalIsActive(false);
   };
