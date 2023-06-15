@@ -8,7 +8,7 @@ import { SCardsContainer, SContainer, SP, STitle } from "./StyleCardsContainer";
 import { getGames, searchGames } from "../../helpers/api";
 import { Pagination } from "@mui/material";
 import { pageSize } from "../../helpers/api";
-import { cardsContainerVariants } from "./animationCardsCOntainer";
+import { cardsContainerVariants } from "./animationCardsContainer";
 import { ICardMini, CardsContainerProps } from "./interfacesCardsContainer";
 
 const CardsContainer: React.FC<CardsContainerProps> = ({ title, ordering, search, pageNumber, setPageNumber }) => {
